@@ -20,7 +20,6 @@ public class StudentController {
     public String viewHomePage(Model model){
         model.addAttribute("listStudents", studentService.getAllStudents());
         return "index";
-
     }
 
     @GetMapping("/showNewStudentForm")
