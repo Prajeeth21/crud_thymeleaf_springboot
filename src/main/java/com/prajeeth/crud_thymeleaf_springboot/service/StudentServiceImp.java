@@ -38,5 +38,10 @@ public class StudentServiceImp implements StudentService {
 		}
         return student;
     }
+
+    @Override
+    public void deleteStudentById(long id) {
+       this.studentRepository.deleteById(id);
+    }
     
 }

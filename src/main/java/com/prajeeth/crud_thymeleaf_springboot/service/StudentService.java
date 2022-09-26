@@ -7,6 +7,7 @@ public interface StudentService {
     List<student> getAllStudents();
     void saveStudent(student student);
     student getStudentById(long id);
+    void deleteStudentById(long id);
     
     
 }
