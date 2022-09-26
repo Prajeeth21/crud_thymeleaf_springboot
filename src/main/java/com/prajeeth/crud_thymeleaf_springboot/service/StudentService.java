@@ -6,7 +6,7 @@ import com.prajeeth.crud_thymeleaf_springboot.model.student;
 public interface StudentService {
     List<student> getAllStudents();
     void saveStudent(student student);
-    
+    student getStudentById(long id);
     
     
 }

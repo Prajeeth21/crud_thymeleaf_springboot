@@ -28,6 +28,10 @@
                         <td th:text = "${student.firstName}"></td>
                         <td th:text = "${student.lastName}"></td>
                         <td th:text = "${student.email}"></td>
+                        <td>
+                            <a th:href = "@{/showFormForUpdate/{id}(id=${student.id})}" class="btn btn-primary btn-sm mb-3"> Update </a>
+                            <a th:href = "@{/deleteEmployee/{id}(id=${student.id})}" class="btn btn-primary btn-sm mb-3"> Delete </a>
+                        </td>
                     </tr>
                 </tbody>
             </table>

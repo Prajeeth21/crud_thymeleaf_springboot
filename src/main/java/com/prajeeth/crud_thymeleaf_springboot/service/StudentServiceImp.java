@@ -1,6 +1,7 @@
 package com.prajeeth.crud_thymeleaf_springboot.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -24,6 +25,18 @@ public class StudentServiceImp implements StudentService {
     public void saveStudent(student student) {
         this.studentRepository.save(student);
         
+    }
+
+    @Override
+    public student getStudentById(long id) {
+        Optional<student> optional = studentRepository.findById(id);
+        student student = null;
+        if(optional.isPresent()){
+            student = optional.get();
+        } else {
+			throw new RuntimeException(" Employee not found for id :: " + id);
+		}
+        return student;
     }
     
 }
