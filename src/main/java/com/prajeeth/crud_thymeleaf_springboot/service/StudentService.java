@@ -12,6 +12,7 @@ public interface StudentService {
     student getStudentById(long id);
     void deleteStudentById(long id);
     Page<student> findPaginated(int pageNo, int pageSize, String sortField, String sortDir);
+    List<student> getByKeyword(String keyword);
     
     
 }

@@ -55,5 +55,9 @@ public class StudentServiceImp implements StudentService {
         Pageable pageable = PageRequest.of(pageNo - 1, pageSize, sort);
         return this.studentRepository.findAll(pageable);
     }
+
+    public List<student> getByKeyword(String keyword){
+        return studentRepository.findByKeyword(keyword);
+       }
     
 }

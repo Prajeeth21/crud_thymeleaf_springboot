@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.prajeeth.crud_thymeleaf_springboot.model.student;
@@ -25,6 +26,19 @@ public class StudentController {
     @GetMapping("/")
     public String viewHomePage(Model model){
         return findPaginated(1, "firstName", "asc", model);
+    }
+
+    @RequestMapping(path = {"/","/search"})
+    public String home(student student, Model model, String keyword) {
+        if(keyword!=null) {
+            List<student> listStudents = studentService.getByKeyword(keyword);
+            model.addAttribute("list", listStudents);
+        }
+        else{
+            List<student> listStudents = studentService.getAllStudents();
+            model.addAttribute("list", listStudents);
+        }
+        return "index";
     }
 
     @GetMapping("/showNewStudentForm")
