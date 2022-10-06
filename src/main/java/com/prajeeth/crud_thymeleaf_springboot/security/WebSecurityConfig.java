@@ -41,17 +41,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-				.antMatchers("/").hasAnyAuthority("USER", "EDITOR", "ADMIN")
-				.antMatchers("/search").hasAnyAuthority("USER", "EDITOR", "ADMIN")
-				.antMatchers("/new").hasAnyAuthority("ADMIN")
-				.antMatchers("/showFormForUpdate").hasAnyAuthority("ADMIN", "EDITOR")
-				.antMatchers("/saveStudent").hasAnyAuthority("ADMIN", "EDITOR")
+				.antMatchers("/").hasAnyAuthority("USER", "ADMIN")
+				.antMatchers("/search").hasAnyAuthority("USER", "ADMIN")
+				.antMatchers("/showFormForUpdate").hasAnyAuthority("ADMIN")
+				.antMatchers("/saveStudent").hasAnyAuthority("ADMIN")
 				.antMatchers("/deleteStudent").hasAuthority("ADMIN")
-				.and().logout().permitAll().and().exceptionHandling().accessDeniedPage("/403");
+				.anyRequest().authenticated()
+				.and().formLogin().permitAll()
+				.and().logout().permitAll()
+				.and()
+				.exceptionHandling().accessDeniedPage("/403");
 
 		http.csrf().disable();
 		http.headers().frameOptions().disable();
 	}
-
-    
 }
