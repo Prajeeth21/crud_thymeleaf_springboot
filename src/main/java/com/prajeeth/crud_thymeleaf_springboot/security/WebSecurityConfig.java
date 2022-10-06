@@ -41,10 +41,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-				.antMatchers("/").hasAnyAuthority("USER", "ADMIN")
-				.antMatchers("/search").hasAnyAuthority("USER", "ADMIN")
-				.antMatchers("/showFormForUpdate").hasAnyAuthority("ADMIN")
-				.antMatchers("/saveStudent").hasAnyAuthority("ADMIN")
+				.antMatchers("/").hasAnyAuthority("USER", "ADMIN", "EDITOR")
+				.antMatchers("/search").hasAnyAuthority("USER", "ADMIN", "EDITOR")
+				.antMatchers("/showFormForUpdate").hasAnyAuthority("ADMIN", "EDITOR")
+				.antMatchers("/saveStudent").hasAnyAuthority("ADMIN", "EDITOR")
 				.antMatchers("/deleteStudent").hasAuthority("ADMIN")
 				.anyRequest().authenticated()
 				.and().formLogin().permitAll()
