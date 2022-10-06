@@ -1,8 +1,8 @@
 package com.prajeeth.crud_thymeleaf_springboot.controller;
 
 import java.util.List;
-
 import javax.validation.Valid;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import com.prajeeth.crud_thymeleaf_springboot.model.student;
 import com.prajeeth.crud_thymeleaf_springboot.service.StudentService;
@@ -21,7 +23,7 @@ import com.prajeeth.crud_thymeleaf_springboot.service.StudentService;
 @Controller
 public class StudentController {
 
-
+    Logger logger = LogManager.getLogger(StudentController.class);
     @Autowired
     private StudentService studentService;
 
