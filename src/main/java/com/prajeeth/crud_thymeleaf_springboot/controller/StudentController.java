@@ -3,7 +3,6 @@ package com.prajeeth.crud_thymeleaf_springboot.controller;
 import java.util.List;
 import javax.validation.Valid;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;

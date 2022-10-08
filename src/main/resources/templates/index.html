@@ -61,8 +61,8 @@
                         <td th:text = "${student.lastName}"></td>
                         <td th:text = "${student.email}"></td>
                         <td>
-                            <a sec:authorize="hasAnyAuthority('ADMIN', 'EDITOR')" th:href = "@{/showFormForUpdate/{id}(id=${student.id})}"><i class="fa fa-edit" ></i></a>
-                            <a sec:authorize="hasAnyAuthority('ADMIN')" th:href = "@{/deleteStudent/{id}(id=${student.id})}"><i class="fa fa-remove" style="color:red"></i></a>
+                            <a sec:authorize="hasAnyAuthority('ADMIN', 'EDITOR')" th:href = "@{/showFormForUpdate/{id}(id=${student.id})}"><i class="fa fa-edit"></i></a>
+                            <a sec:authorize="hasAnyAuthority('ADMIN')" th:href = "@{/deleteStudent/{id}(id=${student.id})}" onclick="return confirm('Are you sure you want to delete this item?');"><i class="fa fa-remove" style="color:#FF0000"></i></a>
                         </td>
                     </tr>
                 </tbody>
@@ -97,5 +97,4 @@
         </div>
     </body>
 </html>
-
 
