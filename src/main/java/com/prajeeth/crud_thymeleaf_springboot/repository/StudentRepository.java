@@ -14,3 +14,4 @@ public interface StudentRepository extends JpaRepository<student, Long>{
     List<student> findByKeyword(@Param("keyword") String keyword);
     
 }
+

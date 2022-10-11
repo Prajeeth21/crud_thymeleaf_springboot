@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="ISO-8859-1">
+        <title> Users and their Access Privilages </title>
+    </head>
+
+    <body>
+        <thead border="1" class="table table-striped table-responsive-md">
+            <tr>
+                <th>Username</th>
+                <th>Enabled</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="user : ${ListUser}">
+                <td th:text = "${user.username}"></td>
+                <td th:text = "${user.enabled}"></td>
+            </tr>
+        </tbody>
+    </body>
+</html>

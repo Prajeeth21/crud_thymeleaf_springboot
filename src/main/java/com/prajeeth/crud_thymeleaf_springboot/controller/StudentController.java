@@ -31,6 +31,13 @@ public class StudentController {
         return findPaginated(1, "firstName", "asc", model);
     }
 
+    @GetMapping("/usercontrol")
+    public String usercontrol(Model model){
+        System.out.println(studentService.getAllUsername());
+        model.addAttribute("ListUser", studentService.getAllUsername());
+        return "adminpage";
+    }
+
     @RequestMapping(path = {"/","/search"})
     public String home(student student, Model model, String keyword) {
         if(keyword!=null) {

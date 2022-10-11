@@ -10,18 +10,27 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import com.prajeeth.crud_thymeleaf_springboot.model.User;
 import com.prajeeth.crud_thymeleaf_springboot.model.student;
 import com.prajeeth.crud_thymeleaf_springboot.repository.StudentRepository;
+import com.prajeeth.crud_thymeleaf_springboot.repository.UsernameRepository;
 
 @Service
 public class StudentServiceImp implements StudentService {
 
     @Autowired
     private StudentRepository studentRepository;
+    @Autowired
+    private UsernameRepository usernameRepository;
 
     @Override
     public List<student> getAllStudents(){
         return studentRepository.findAll();
+    }
+
+    @Override
+    public List<User> getAllUsername() {
+        return usernameRepository.findAll();
     }
 
     @Override
@@ -59,5 +68,7 @@ public class StudentServiceImp implements StudentService {
     public List<student> getByKeyword(String keyword){
         return studentRepository.findByKeyword(keyword);
        }
+
+    
     
 }

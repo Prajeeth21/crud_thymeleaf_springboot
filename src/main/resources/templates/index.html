@@ -37,6 +37,10 @@
             <p class="space"></p>
 
             
+            <a sec:authorize="hasAnyAuthority('ADMIN')" th:href = "@{/usercontrol}" class="btn btn-primary btn-sm mb-3 btn-block"> User Control </a>
+            
+
+            
             <table border="1" class="table table-striped table-responsive-md">
                 <thead>
                     <tr>
