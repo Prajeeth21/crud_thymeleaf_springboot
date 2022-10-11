@@ -32,7 +32,7 @@
               padding-top: 12px;
               padding-bottom: 12px;
               text-align: left;
-              background-color: #04AA6D;
+              background-color: #018dff;
               color: white;
             }
         </style>
@@ -52,7 +52,10 @@
                 <tbody>
                     <tr th:each="user : ${ListUser}">
                         <td th:text = "${user.username}"></td>
-                        <td th:text = "${user.enabled}"></td>
+                        <td>
+                            <span th:if="${user.enabled} == TRUE"><button type="submit" style="background-color:green">Enabled</button></span>
+                            <span th:unless="${user.enabled} == TRUE"><button style="background-color:rgba(255, 0, 0, 0.623)">Disabled</button></span>
+                        </td>
                     </tr>
                 </tbody>
             </table>
