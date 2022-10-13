@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.prajeeth.crud_thymeleaf_springboot.model.User;
 import com.prajeeth.crud_thymeleaf_springboot.model.student;
 import com.prajeeth.crud_thymeleaf_springboot.service.StudentService;
 
@@ -70,6 +71,13 @@ public class StudentController {
         student student = studentService.getStudentById(id);
         model.addAttribute("student", student);
         return "update_student";
+    }
+
+    @GetMapping("/privilage/{user_id}")
+    public String privilage(@PathVariable(value= "user_id") Long user_id, Model model){
+        User user = studentService.getUsernameById(user_id);
+        model.addAttribute("user_id", user);
+        return "admin_page";
     }
 
     @GetMapping("/deleteStudent/{id}")

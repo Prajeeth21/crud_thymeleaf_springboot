@@ -52,6 +52,19 @@ public class StudentServiceImp implements StudentService {
     }
 
     @Override
+    public User getUsernameById(long user_id) {
+        Optional<User> optional = usernameRepository.findById((int) user_id);
+        User user = null;
+        if(optional.isPresent()){
+            user = optional.get();
+        }
+        else {
+			throw new RuntimeException(" User not found for id :: " + user_id);
+		}
+        return user;
+    }
+
+    @Override
     public void deleteStudentById(long id) {
        this.studentRepository.deleteById(id);
     }
@@ -68,6 +81,8 @@ public class StudentServiceImp implements StudentService {
     public List<student> getByKeyword(String keyword){
         return studentRepository.findByKeyword(keyword);
        }
+
+    
 
     
     
